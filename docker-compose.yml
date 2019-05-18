@@ -16,6 +16,7 @@ services:
   container_name: tasty_db
   volumes:
   - db_data:/var/lib/mysql
+  - app:/var/www/html
   environment:
   - MYSQL_RANDOM_ROOT_PASSWORD=yes
   - MYSQL_DATABASE=tastyigniter
