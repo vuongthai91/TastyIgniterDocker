@@ -5,12 +5,12 @@ services:
 #  build: .
   container_name: tasty_app
   ports:
-  - "8001:80"
+    - "8001:80"
   environment:
-  - MYSQL_HOSTNAME=db
-  - MYSQL_DATABASE=tastyigniter
-  - MYSQL_USER=tastyigniter
-  - MYSQL_PASSWORD=somepassword
+    - MYSQL_HOSTNAME=db
+    - MYSQL_DATABASE=tastyigniter
+    - MYSQL_USER=tastyigniter
+    - MYSQL_PASSWORD=somepassword
  db:
   image: mariadb
   container_name: tasty_db

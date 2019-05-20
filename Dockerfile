@@ -32,17 +32,17 @@ RUN a2enmod rewrite
 
 VOLUME /var/www/html
 
-ENV TASTYIGNITER_VERSION 2.1.1
+#ENV TASTYIGNITER_VERSION  2.1.1
+ENV TASTYIGNITER_VERSION  master
+# RUN set -ex; \
+# 	curl -o tastyigniter.zip -fSL "https://codeload.github.com/tastyigniter/setup/zip/${TASTYIGNITER_VERSION}"; \
+# 	unzip tastyigniter.zip -d /usr/src/; \
+# 	rm tastyigniter.zip; \
+# 	mv /usr/src/TastyIgniter-${TASTYIGNITER_VERSION} /usr/src/tastyigniter; \
+# 	chown -R www-data:www-data /usr/src/tastyigniter
 
-RUN set -ex; \
-	curl -o tastyigniter.zip -fSL "https://codeload.github.com/tastyigniter/TastyIgniter/zip/${TASTYIGNITER_VERSION}"; \
-	unzip tastyigniter.zip -d /usr/src/; \
-	rm tastyigniter.zip; \
-	mv /usr/src/TastyIgniter-${TASTYIGNITER_VERSION} /usr/src/tastyigniter; \
-	chown -R www-data:www-data /usr/src/tastyigniter
 
+# COPY docker-entrypoint.sh /usr/local/bin/
 
-COPY docker-entrypoint.sh /usr/local/bin/
-
-ENTRYPOINT ["docker-entrypoint.sh"]
+# ENTRYPOINT ["docker-entrypoint.sh"]
 CMD ["apache2-foreground"]
